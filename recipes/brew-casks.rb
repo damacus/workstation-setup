@@ -1,4 +1,4 @@
-brew_tap 'wata727/tflint'
+homebrew_tap 'wata727/tflint'
 
 cask = %w(discord atom visual-studio-code docker hab
           java spectacle aws-vault numi vagrant google-cloud-sdk
