@@ -16,7 +16,7 @@ end
     target_file ::File.join('Users', node['user'], 'scripts', 'brew-update', script)
     to          ::File.join('Users', node['user'], script)
     mode        '0755'
-    owner        node['user']
+    owner       node['user']
     group       node['group']
   end
 end
