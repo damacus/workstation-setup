@@ -18,4 +18,3 @@ plist 'com.apple.driver.AppleBluetoothMultitouch.trackpad.plist' do
   entry 'Clicking'
   value 'YES'
 end
-

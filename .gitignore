@@ -45,6 +45,7 @@ vendor/
 Policyfile.lock.json
 Cheffile.lock
 .librarian/
+credentials.rb
 
 # vagrant stuff
 .vagrant/

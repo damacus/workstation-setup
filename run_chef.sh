@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 chef install &&\
-chef export Policyfile.rb ./vendor --force &&\
+sudo rm -rf vendor &&\
+chef export Policyfile.rb ./vendor &&\
 cd vendor &&\
-chruby 🍳
-chef-client -z;
+sudo chef-client -z;
 cd -
