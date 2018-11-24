@@ -6,6 +6,11 @@ git 'bootstrap-gists' do
   group node['group']
 end
 
+directory ::File.join('Users', node['user'], 'scripts') do
+  owner node['user']
+  group node['group']
+end
+
 %w(brew-update.sh box-update.sh).each do |script|
   link script do
     target_file ::File.join('Users', node['user'], 'scripts', 'brew-update', script)
