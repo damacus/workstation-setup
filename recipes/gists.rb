@@ -1,29 +1,17 @@
-git 'brew-update' do
+git 'bootstrap-gists' do
   repository 'https://gist.github.com/81f128c3c6fd10a7d1295cf612282bb0.git'
-  destination ::File.join('Users', node['user'], 'brew-update.sh')
+  destination ::File.join('Users', node['user'], 'scripts', 'bootstrap-gists')
   depth 1
   user node['user']
   group node['group']
 end
 
-file ::File.join('Users', node['user'], 'brew-update.sh') do
-  mode '0755'
-  user node['user']
-  group node['group']
-end
-
-
-git 'vagrant-box-update' do
-  repository 'https://gist.github.com/5f097adb3937c7340013f79cb1221c4d.git'
-  destination ::File.join('Users', node['user'], 'box-update.sh')
-  depth 1
-  user node['user']
-  group node['group']
-end
-
-
-file ::File.join('Users', node['user'], 'box-update.sh') do
-  mode '0755'
-  user node['user']
-  group node['group']
+%w(brew-update.sh box-update.sh).each do |script|
+  link script do
+    target_file ::File.join('Users', node['user'], 'scripts', 'brew-update', script)
+    to          ::File.join('Users', node['user'], script)
+    mode        '0755'
+    owner        node['user']
+    group       node['group']
+  end
 end
