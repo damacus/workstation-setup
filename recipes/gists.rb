@@ -4,8 +4,14 @@ git 'brew-update' do
   depth 1
   user node['user']
   group node['group']
-  mode '0755'
 end
+
+file ::File.join('Users', node['user'], 'brew-update.sh') do
+  mode '0755'
+  user node['user']
+  group node['group']
+end
+
 
 git 'vagrant-box-update' do
   repository 'https://gist.github.com/5f097adb3937c7340013f79cb1221c4d.git'
@@ -13,5 +19,11 @@ git 'vagrant-box-update' do
   depth 1
   user node['user']
   group node['group']
+end
+
+
+file ::File.join('Users', node['user'], 'box-update.sh') do
   mode '0755'
+  user node['user']
+  group node['group']
 end
